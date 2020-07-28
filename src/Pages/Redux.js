@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { setName, setAge } from "../redux/actions/userActions";
+import { addNumber, subtractNumber } from "../redux/actions/counterActions";
 
 class Redux extends React.Component {
   constructor(props) {
@@ -59,6 +60,24 @@ class Redux extends React.Component {
               onChange={this.changeUserAge}
             />
           </div>
+          <div className="mb-4">
+            <button
+              className="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700"
+              onClick={() => {
+                this.props.addNumber(1);
+              }}
+            >
+              +
+            </button>
+            <button
+              className="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700"
+              onClick={() => {
+                this.props.subtractNumber(1);
+              }}
+            >
+              -
+            </button>
+          </div>
         </div>
       </div>
     );
@@ -79,6 +98,12 @@ const mapDispatchToProps = (dispatch) => {
     },
     setAge: (age) => {
       dispatch(setAge(age));
+    },
+    addNumber: (number) => {
+      dispatch(addNumber(number));
+    },
+    subtractNumber: (number) => {
+      dispatch(subtractNumber(number));
     },
   };
 };

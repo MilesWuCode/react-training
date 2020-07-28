@@ -10,15 +10,15 @@ const counterReducer = (
     case "ADD":
       state = {
         ...state,
-        reslut: state.result + action.payload,
-        lastValues: [...state.lastValues, action.payload],
+        result: state.result + action.payload,
+        lastValues: [...state.lastValues, state.result + action.payload],
       };
       break;
     case "SUBTRACT":
       state = {
         ...state,
-        reslut: state.result - action.payload,
-        lastValues: [...state.lastValues, action.payload],
+        result: state.result - action.payload,
+        lastValues: [...state.lastValues, state.result - action.payload],
       };
       break;
   }
