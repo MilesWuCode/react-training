@@ -1,26 +1,31 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import Nav from "./Components/Nav";
-import Home from "./Pages/Home";
-import ReactRouterDom from "./Pages/ReactRouterDom";
-import TailwindCss from "./Pages/TailwindCss";
-import NoMatch from "./Pages/NoMatch";
-import {} from "styled-components";
-import './css/tailwind.css';
+import { Provider } from "react-redux";
+import store from "./store";
+import Nav from "./components/Nav";
+import Home from "./pages/Home";
+import ReactRouterDom from "./pages/ReactRouterDom";
+import TailwindCss from "./pages/TailwindCss";
+import Redux from "./pages/Redux";
+import NoMatch from "./pages/NoMatch";
+import "./App.css";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Nav />
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/react-router-dom" component={ReactRouterDom} />
-        <Route path="/tailwind-css" component={TailwindCss} />
-        <Route path="*">
-          <NoMatch />
-        </Route>
-      </Switch>
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Nav />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/react-router-dom" component={ReactRouterDom} />
+          <Route path="/tailwind-css" component={TailwindCss} />
+          <Route path="/redux" component={Redux} />
+          <Route path="*">
+            <NoMatch />
+          </Route>
+        </Switch>
+      </BrowserRouter>
+    </Provider>
   );
 }
 

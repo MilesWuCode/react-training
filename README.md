@@ -55,7 +55,10 @@ package.json
 
 ## Redux
 
-- wip
+```sh
+yarn add redux
+yarn add redux-logger
+```
 
 ## styled-components
 
