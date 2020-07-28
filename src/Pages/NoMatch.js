@@ -6,7 +6,7 @@ function NoMatch() {
 
   return (
     <div>
-      <h3>
+      <h3 className="text-2xl">
         No match for <code>{location.pathname}</code>
       </h3>
     </div>

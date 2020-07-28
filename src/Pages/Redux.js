@@ -22,7 +22,7 @@ class Redux extends React.Component {
   render() {
     return (
       <div>
-        <h3>Redux</h3>
+        <h3 className="text-2xl">Redux</h3>
         <div>
           <p>user : {JSON.stringify(this.props.user, null, 2)}</p>
           <p>counter : {JSON.stringify(this.props.counter, null, 2)}</p>

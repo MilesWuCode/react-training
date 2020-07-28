@@ -605,16 +605,16 @@ video {
   }
 }
 
-.space-x-2 > :not(template) ~ :not(template) {
-  --space-x-reverse: 0;
-  margin-right: calc(0.5rem * var(--space-x-reverse));
-  margin-left: calc(0.5rem * calc(1 - var(--space-x-reverse)));
-}
-
 .appearance-none {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
+}
+
+.bg-white {
+  --bg-opacity: 1;
+  background-color: #fff;
+  background-color: rgba(255, 255, 255, var(--bg-opacity));
 }
 
 .bg-blue-500 {
@@ -629,6 +629,16 @@ video {
   background-color: rgba(43, 108, 176, var(--bg-opacity));
 }
 
+.border-transparent {
+  border-color: transparent;
+}
+
+.border-teal-500 {
+  --border-opacity: 1;
+  border-color: #38b2ac;
+  border-color: rgba(56, 178, 172, var(--border-opacity));
+}
+
 .rounded {
   border-radius: 0.25rem;
 }
@@ -637,16 +647,40 @@ video {
   border-width: 1px;
 }
 
+.border-b-2 {
+  border-bottom-width: 2px;
+}
+
 .block {
   display: block;
+}
+
+.flex {
+  display: flex;
+}
+
+.justify-center {
+  justify-content: center;
 }
 
 .font-bold {
   font-weight: 700;
 }
 
+.text-xs {
+  font-size: 0.75rem;
+}
+
 .text-sm {
   font-size: 0.875rem;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+}
+
+.text-4xl {
+  font-size: 2.25rem;
 }
 
 .leading-tight {
@@ -659,6 +693,10 @@ video {
 
 .mb-4 {
   margin-bottom: 1rem;
+}
+
+.mr-8 {
+  margin-right: 2rem;
 }
 
 .max-w-xs {
@@ -674,6 +712,11 @@ video {
   padding-bottom: 0.5rem;
 }
 
+.py-3 {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
 .px-3 {
   padding-left: 0.75rem;
   padding-right: 0.75rem;
@@ -684,8 +727,21 @@ video {
   padding-right: 1rem;
 }
 
+.px-8 {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.pt-2 {
+  padding-top: 0.5rem;
+}
+
 .shadow {
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+.shadow-md {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 .focus\:shadow-outline:focus {
@@ -702,6 +758,24 @@ video {
   --text-opacity: 1;
   color: #4a5568;
   color: rgba(74, 85, 104, var(--text-opacity));
+}
+
+.text-teal-500 {
+  --text-opacity: 1;
+  color: #38b2ac;
+  color: rgba(56, 178, 172, var(--text-opacity));
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.no-underline {
+  text-decoration: none;
+}
+
+.tracking-wide {
+  letter-spacing: 0.025em;
 }
 
 .w-full {

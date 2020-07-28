@@ -7,10 +7,10 @@ const Title = styled.h3`
 `;
 //
 
-function ReactRouterDom() {
+const ReactRouterDom = () => {
   return (
     <div>
-      <Title>React Router Dom</Title>
+      <Title className="text-2xl">React Router Dom</Title>
     </div>
   );
 }
