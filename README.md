@@ -7,6 +7,11 @@
 - [cookie](#cookie)
 - [redux](#redux)
 - [styled-components](#styled-components)
+- [axios with repository-pattern](#axios-with-repository-pattern)
+- [form with validation](#form-with-validation)
+- graphql
+- auth
+- todos
 
 ## react-router-dom
 
@@ -23,7 +28,7 @@ import { BrowserRouter, Route, Link } from "react-router-dom";
 ## tailwind-css
 
 ```sh
-yarn add tailwindcss postcss-cli autoprefixer -D
+yarn add tailwindcss postcss-cli autoprefixer
 npx tailwind init --full
 touch postcss.config.js
 ```
@@ -40,7 +45,7 @@ package.json
 
 ```json
   "scripts": {
-    "build:tailwind": "postcss assets/tailwind.css -o src/css/tailwind.css"
+    "build:tailwind": "postcss src/tailwind.css -o src/App.css"
   },
 ```
 
@@ -57,3 +62,13 @@ package.json
 ```sh
 yarn add styled-components
 ```
+
+## axios with repository-pattern
+
+```sh
+yarn add axios
+```
+
+## form with validation
+
+- wip
