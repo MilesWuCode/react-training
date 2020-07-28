@@ -56,8 +56,7 @@ package.json
 ## Redux
 
 ```sh
-yarn add redux
-yarn add redux-logger
+yarn add redux react-redux redux-logger
 ```
 
 ## styled-components
