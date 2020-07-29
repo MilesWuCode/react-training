@@ -1,0 +1,27 @@
+@baseUrl = http://localhost:6000
+###
+GET {{baseUrl}}/posts HTTP/1.1
+Content-Type: application/json
+###
+GET {{baseUrl}}/posts/1 HTTP/1.1
+Content-Type: application/json
+###
+GET {{baseUrl}}/posts/1?_embed=comments HTTP/1.1
+Content-Type: application/json
+###
+POST {{baseUrl}}/posts HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "jack"
+}
+###
+PUT {{baseUrl}}/posts/1 HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "john"
+}
+###
+DELETE {{baseUrl}}/posts/1 HTTP/1.1
+Content-Type: application/json

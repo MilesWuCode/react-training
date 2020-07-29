@@ -1,0 +1,20 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "name": "apple"
+    }
+  ],
+  "comments": [
+    {
+      "name": "mac",
+      "postId": 1,
+      "id": 1
+    },
+    {
+      "name": "iphone",
+      "postId": 1,
+      "id": 2
+    }
+  ]
+}

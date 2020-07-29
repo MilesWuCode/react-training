@@ -22,7 +22,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "build:tailwind": "postcss src/tailwind.css -o src/App.css"
+    "build:tailwind": "postcss src/tailwind.css -o src/App.css",
+    "json-server": "json-server --watch json-server/db.json --port 6000"
   },
   "eslintConfig": {
     "extends": "react-app"
