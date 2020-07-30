@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import ReactRouterDom from "./pages/ReactRouterDom";
 import TailwindCss from "./pages/TailwindCss";
 import Redux from "./pages/Redux";
+import Ajax from "./pages/Ajax";
 import NoMatch from "./pages/NoMatch";
 import "./App.css";
 
@@ -20,6 +21,7 @@ function App() {
           <Route path="/react-router-dom" component={ReactRouterDom} />
           <Route path="/tailwind-css" component={TailwindCss} />
           <Route path="/redux" component={Redux} />
+          <Route path="/ajax" component={Ajax} />
           <Route path="*">
             <NoMatch />
           </Route>
