@@ -1,5 +1,6 @@
 import React from "react";
 import postApi from "../repositories/posts";
+import Trash from "../svg/trash.svg";
 
 class Ajax extends React.Component {
   constructor(props) {
@@ -43,6 +44,18 @@ class Ajax extends React.Component {
       .then(({ data }) => {
         this.setState({ newItem: "" });
 
+        this.getItems();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
+  deleteItem(id) {
+    postApi
+      .delete(id)
+      .then(({ data }) => {
+        console.log(data);
         this.getItems();
       })
       .catch((err) => {
@@ -94,9 +107,13 @@ class Ajax extends React.Component {
                       <div className="flex-grow px-2 font-medium">
                         {item.name}
                       </div>
-                      <div className="text-sm font-normal tracking-wide text-gray-500">
-                        ({item.id})
-                      </div>
+                      <img
+                        src={Trash}
+                        onClick={() => {
+                          this.deleteItem(item.id);
+                        }}
+                        alt="delete"
+                      />
                     </div>
                   ))}
                 </div>

@@ -1,20 +1,21 @@
 {
   "posts": [
     {
-      "id": 1,
-      "name": "apple"
-    }
-  ],
-  "comments": [
-    {
-      "name": "mac",
-      "postId": 1,
-      "id": 1
+      "name": "321321",
+      "id": 8
     },
     {
-      "name": "iphone",
-      "postId": 1,
-      "id": 2
+      "name": "312321",
+      "id": 9
+    },
+    {
+      "name": "123123",
+      "id": 10
+    },
+    {
+      "name": "123412351234",
+      "id": 12
     }
-  ]
+  ],
+  "comments": []
 }

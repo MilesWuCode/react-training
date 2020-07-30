@@ -32,10 +32,9 @@ export default {
       url: "/posts",
       ...params,
     }),
-  delete: (params) =>
+  delete: (id) =>
     instance({
       method: "DELETE",
-      url: "/posts",
-      ...params,
+      url: "/posts/" + id,
     }),
 };
