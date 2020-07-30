@@ -9,9 +9,9 @@
 - [styled-components](#styled-components)
 - [axios with repository-pattern](#axios-with-repository-pattern)
 - [form with validation](#form-with-validation)
-- graphql
-- auth
-- todos
+- [graphql](#graphql)
+- [context](#context)
+- [auth](#auth)
 
 ## react-router-dom
 
@@ -56,7 +56,10 @@ package.json
 ## Redux
 
 ```sh
-yarn add redux react-redux redux-logger
+# create app
+npx create-react-app my-app --template redux
+# existing app
+yarn add redux react-redux redux-logger @reduxjs/toolkit
 ```
 
 ## styled-components
@@ -72,5 +75,9 @@ yarn add axios
 ```
 
 ## form with validation
+
+- wip
+
+## graphql
 
 - wip

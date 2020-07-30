@@ -6,17 +6,44 @@ class Ajax extends React.Component {
     super(props);
 
     this.state = {
-      error: null,
-      isLoaded: false,
+      newItem: "",
       items: [],
     };
   }
 
   componentDidMount() {
+    this.getItems();
+  }
+
+  getItems() {
     postApi
-      .all()
+      .all({
+        params: {
+          _page: 1,
+          _limit: 5,
+          _sort: "id",
+          _order: "desc",
+        },
+      })
       .then(({ data }) => {
-        console.log(data);
+        this.setState({ items: data });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
+  createItem() {
+    postApi
+      .create({
+        data: {
+          name: this.state.newItem,
+        },
+      })
+      .then(({ data }) => {
+        this.setState({ newItem: "" });
+
+        this.getItems();
       })
       .catch((err) => {
         console.log(err);
@@ -52,61 +79,35 @@ class Ajax extends React.Component {
                     id="search"
                     type="text"
                     placeholder="Search teams or members"
+                    value={this.state.newItem}
+                    onChange={(event) => {
+                      this.setState({ newItem: event.target.value });
+                    }}
                   />
                 </div>
                 <div className="py-3 text-sm">
-                  <div className="flex justify-start px-2 py-2 my-2 text-gray-700 rounded-md cursor-pointer hover:text-blue-400 hover:bg-blue-100">
-                    <span className="w-2 h-2 m-2 bg-gray-400 rounded-full"></span>
-                    <div className="flex-grow px-2 font-medium">
-                      Tighten Co.
+                  {this.state.items.map((item) => (
+                    <div
+                      key={item.id}
+                      className="flex justify-start px-2 py-2 my-2 text-gray-700 rounded-md cursor-pointer hover:text-blue-400 hover:bg-blue-100"
+                    >
+                      <div className="flex-grow px-2 font-medium">
+                        {item.name}
+                      </div>
+                      <div className="text-sm font-normal tracking-wide text-gray-500">
+                        ({item.id})
+                      </div>
                     </div>
-                    <div className="text-sm font-normal tracking-wide text-gray-500">
-                      Team
-                    </div>
-                  </div>
-                  <div className="flex justify-start px-2 py-2 my-2 text-gray-700 rounded-md cursor-pointer hover:text-blue-400 hover:bg-blue-100">
-                    <span className="w-2 h-2 m-2 bg-green-400 rounded-full"></span>
-                    <div className="flex-grow px-2 font-medium">
-                      Taylor Otwell
-                    </div>
-                    <div className="text-sm font-normal tracking-wide text-gray-500">
-                      Member
-                    </div>
-                  </div>
-                  <div className="flex justify-start px-2 py-2 my-2 text-gray-700 rounded-md cursor-pointer hover:text-blue-400 hover:bg-blue-100">
-                    <span className="w-2 h-2 m-2 bg-gray-400 rounded-full"></span>
-                    <div className="flex-grow px-2 font-medium">
-                      Adam Wathan
-                    </div>
-                    <div className="text-sm font-normal tracking-wide text-gray-500">
-                      Member
-                    </div>
-                  </div>
-                  <div className="flex justify-start px-2 py-2 my-2 text-gray-700 rounded-md cursor-pointer hover:text-blue-400 hover:bg-blue-100">
-                    <span className="w-2 h-2 m-2 bg-gray-400 rounded-full"></span>
-                    <div className="flex-grow px-2 font-medium">
-                      Duke Street Studio Inc.
-                    </div>
-                    <div className="text-sm font-normal tracking-wide text-gray-500">
-                      Team
-                    </div>
-                  </div>
-                  <div className="flex justify-start px-2 py-2 my-2 text-gray-700 rounded-md cursor-pointer hover:text-blue-400 hover:bg-blue-100">
-                    <span className="w-2 h-2 m-2 bg-green-400 rounded-full"></span>
-                    <div className="flex-grow px-2 font-medium">
-                      Jeffrey Wey
-                    </div>
-                    <div className="text-sm font-normal tracking-wide text-gray-500">
-                      Member
-                    </div>
-                  </div>
+                  ))}
                 </div>
                 <div className="block px-3 py-2 -mx-3 -mb-2 text-sm text-right bg-gray-200 rounded-b-lg">
-                  <button className="px-4 py-2 font-bold text-gray-500 hover:text-gray-600">
-                    Cancel
-                  </button>
-                  <button className="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700">
-                    Invite
+                  <button
+                    className="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700"
+                    onClick={() => {
+                      this.createItem();
+                    }}
+                  >
+                    Create
                   </button>
                 </div>
               </div>
