@@ -1,6 +1,6 @@
 import React from "react";
 import postApi from "../repositories/posts";
-import Trash from "../svg/trash.svg";
+import { ReactComponent as Trash } from "../svg/trash.svg";
 
 class Ajax extends React.Component {
   constructor(props) {
@@ -107,8 +107,7 @@ class Ajax extends React.Component {
                       <div className="flex-grow px-2 font-medium">
                         {item.name}
                       </div>
-                      <img
-                        src={Trash}
+                      <Trash
                         onClick={() => {
                           this.deleteItem(item.id);
                         }}
