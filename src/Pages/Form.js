@@ -35,7 +35,7 @@ function Form() {
   return (
     <div>
       <h3>Form</h3>
-      <div className="w-full max-w-xs">
+      <div className="w-full max-w-xs mx-auto">
         <form
           noValidate
           className="px-8 pt-6 pb-8 mb-4 bg-white rounded shadow-md"
