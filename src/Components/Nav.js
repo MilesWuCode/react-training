@@ -41,6 +41,13 @@ function Nav() {
         >
           Ajax
         </NavLink>
+        <NavLink
+          to="/form"
+          className="py-3 mr-8 text-xs font-bold tracking-wide text-teal-500 no-underline uppercase border-b-2 border-transparent"
+          activeClassName="border-teal-500"
+        >
+          Form
+        </NavLink>
       </div>
     </nav>
   );

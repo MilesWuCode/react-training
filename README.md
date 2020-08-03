@@ -76,7 +76,9 @@ yarn add axios
 
 ## form with validation
 
-- wip
+```sh
+yarn add react-hook-form @hookform/resolvers @hapi/joi classnames
+```
 
 ## graphql
 
