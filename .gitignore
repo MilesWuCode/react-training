@@ -24,3 +24,6 @@ yarn-error.log*
 
 # json-server
 json-server/db.json
+
+# vscode
+.vscode/*
