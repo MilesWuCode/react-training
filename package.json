@@ -30,7 +30,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "build:tailwind": "postcss src/tailwind.css -o src/App.css",
-    "json-server": "json-server --watch ./json-server/db.json --port 8888"
+    "json-server": "json-server --watch ./json-server/db.json --port 4000",
+    "json-graphql-server": "json-graphql-server ./json-graphql-server/db.json --p 5000"
   },
   "eslintConfig": {
     "extends": "react-app"

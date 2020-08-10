@@ -1,0 +1,41 @@
+POST http://localhost:5000/graphql
+Content-Type: application/json
+# Authorization: Bearer xxx
+X-REQUEST-TYPE: GraphQL
+
+query ($page: Int!, $perPage: Int!) {
+  allUsers(page: $page, perPage: $perPage) {
+    id
+    name
+  }
+  _allUsersMeta {
+    count
+  }
+}
+
+{
+    "page": 1,
+    "perPage": 2
+}
+
+#####
+POST http://localhost:5000/graphql
+Content-Type: application/json
+# Authorization: Bearer xxx
+X-REQUEST-TYPE: GraphQL
+
+query Post($id: ID!){
+  Post(id: $id) {
+    id
+    name
+    Comments {
+      id
+      name
+      post_id
+    }
+  }
+}
+
+{
+    "id": 2
+}

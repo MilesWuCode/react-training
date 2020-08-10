@@ -91,3 +91,15 @@ yarn add react-hook-form @hookform/resolvers @hapi/joi classnames
 ```sh
 yarn add react-google-login
 ```
+
+## json-server
+
+```sh
+npm install -g json-server
+```
+
+## json-graphql-server
+
+```sh
+npm install -g json-graphql-server
+```
