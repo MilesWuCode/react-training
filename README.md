@@ -11,7 +11,9 @@
 - [form with validation](#form-with-validation)
 - [graphql](#graphql)
 - [context](#context)
+- [google-login](#google-login)
 - [auth](#auth)
+
 
 ## react-router-dom
 
@@ -83,3 +85,9 @@ yarn add react-hook-form @hookform/resolvers @hapi/joi classnames
 ## graphql
 
 - wip
+
+## google-login
+
+```sh
+yarn add react-google-login
+```

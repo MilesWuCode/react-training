@@ -7,6 +7,9 @@ const instance = axios.create({
   },
 });
 
+// https://thedutchlab.com/blog/using-axios-interceptors-for-refreshing-your-api-token
+// https://github.com/Flyrell/axios-auth-refresh
+
 export default {
   all: (params) =>
     instance({

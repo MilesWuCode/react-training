@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { joiResolver } from "@hookform/resolvers";
 import Joi from "@hapi/joi";
 import classNames from "classnames";
+import axios from "axios";
 
 function Form() {
   const schema = Joi.object({
@@ -32,8 +33,19 @@ function Form() {
     { "border-red-500": errors.password && errors.password.message }
   );
 
+  const api = axios.create({
+    baseURL: "http://127.0.0.1:8000",
+    withCredentials: true,
+  })
+
+  // api.defaults.withCredentials = true;
+
+  api.get('/sanctum/csrf-cookie').then(rs=>{
+    console.log(rs)
+  })
+
   return (
-    <div>
+    <>
       <h3>Form</h3>
       <div className="w-full max-w-xs mx-auto">
         <form
@@ -102,7 +114,7 @@ function Form() {
           &copy;2020 Acme Corp. All rights reserved.
         </p>
       </div>
-    </div>
+    </>
   );
 }
 

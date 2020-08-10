@@ -48,6 +48,13 @@ function Nav() {
         >
           Form
         </NavLink>
+        <NavLink
+          to="/third-party-login"
+          className="py-3 mr-8 text-xs font-bold tracking-wide text-teal-500 no-underline uppercase border-b-2 border-transparent"
+          activeClassName="border-teal-500"
+        >
+          Third Party Login
+        </NavLink>
       </div>
     </nav>
   );
