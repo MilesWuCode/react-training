@@ -101,5 +101,6 @@ npm install -g json-server
 ## json-graphql-server
 
 ```sh
+npm install @apollo/client graphql
 npm install -g json-graphql-server
 ```
