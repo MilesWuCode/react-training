@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { ReactComponent as Trash } from "../svg/trash.svg";
 import { gql, useQuery, NetworkStatus } from "@apollo/client";
+import { Pagination } from "@material-ui/lab";
 
 const ALL_POSTS = gql`
   query allPosts($page: Int, $perPage: Int) {
@@ -8,21 +9,37 @@ const ALL_POSTS = gql`
       id
       name
     }
+    _allPostsMeta {
+      count
+    }
   }
 `;
 
 function Graphql() {
-  const page = 0;
-  const perPage = 100;
-
   const [newItem, setNewItem] = useState("");
+  const [page, setPage] = useState(0);
+  const [perPage, setPerPage] = useState(3);
+
+  const handleCreate = () => {
+    console.log("handleCreate", newItem);
+
+    // refetch();
+
+    setNewItem('')
+  };
+
+  const handleDelete = (id) => {
+    console.log("handleDelete", id);
+
+    // refetch();
+  };
 
   const { loading, error, data, refetch, networkStatus } = useQuery(ALL_POSTS, {
     variables: { page, perPage },
     notifyOnNetworkStatusChange: true,
   });
 
-  if (networkStatus === NetworkStatus.refetch) return 'Refetching!';
+  if (networkStatus === NetworkStatus.refetch) return "Refetching!";
 
   if (loading) return <p>Loading...</p>;
 
@@ -57,9 +74,7 @@ function Graphql() {
                   type="text"
                   placeholder="Search teams or members"
                   value={newItem}
-                  onChange={(event) => {
-                    setNewItem(event.target.value);
-                  }}
+                  onChange={(event) => setNewItem(event.target.value)}
                 />
               </div>
 
@@ -72,13 +87,19 @@ function Graphql() {
                     <div className="flex-grow px-2 font-medium">
                       {item.name}
                     </div>
-                    <Trash alt="delete" onClick={()=>refetch()} />
+
+                    <Trash alt="delete" onClick={() => handleDelete(item.id)} />
                   </div>
                 ))}
               </div>
 
+              <Pagination
+                count={Math.ceil(data._allPostsMeta.count / perPage)}
+                defaultPage={page + 1}
+              />
+
               <div className="block px-3 py-2 -mx-3 -mb-2 text-sm text-right bg-gray-200 rounded-b-lg">
-                <button className="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700">
+                <button className="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700" onClick={handleCreate}>
                   Create
                 </button>
               </div>
