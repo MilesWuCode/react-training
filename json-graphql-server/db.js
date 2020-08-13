@@ -1,24 +1,12 @@
 module.exports = {
   posts: [
-    { id: 1, title: "Lorem Ipsum", views: 254, user_id: 123 },
-    { id: 2, title: "Sic Dolor amet", views: 65, user_id: 456 },
-  ],
-  users: [
-    { id: 123, name: "John Doe" },
-    { id: 456, name: "Jane Doe" },
+    { id: 1, name: "php", date: new Date("2017-07-01") },
+    { id: 2, name: "javascript", date: new Date("2017-07-02") },
   ],
   comments: [
-    {
-      id: 987,
-      post_id: 1,
-      body: "Consectetur adipiscing elit",
-      date: new Date("2017-07-03"),
-    },
-    {
-      id: 995,
-      post_id: 1,
-      body: "Nam molestie pellentesque dui",
-      date: new Date("2017-08-17"),
-    },
+    { id: 1, post_id: 1, name: "laravel", date: new Date("2017-07-03") },
+    { id: 2, post_id: 1, name: "nova", date: new Date("2017-07-04") },
+    { id: 3, post_id: 2, name: "vue", date: new Date("2017-07-05") },
+    { id: 4, post_id: 2, name: "react", date: new Date("2017-07-06") },
   ],
 };
